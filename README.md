@@ -32,3 +32,6 @@ List of supported languages of the nltk.corpus stopwords class.
 ```
 'arabic', 'indonesian', 'swedish', 'romanian', 'nepali', 'greek', 'kazakh', 'italian', 'turkish', 'danish', 'dutch', 'french', 'norwegian', 'english', 'finnish', 'german', 'spanish', 'hungarian', 'portuguese', 'azerbaijani', 'russian'
 ```
+# Demo
+If you want to check how everything works, just use the demo function and you're good to go! 
+P.S.: Don't forget to change the indicated variables.
