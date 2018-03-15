@@ -22,8 +22,11 @@ e.g. : If the dataset contains two (clean) reviews ("wow restaurant great", "foo
 ```
 M=array([[1, 1, 1, 0, 0],[0, 0, 0, 1, 1]])
 ```
-Various algorithms are afterwards used to obtain the best classification.
-
+The following classification algorithms are afterwards used:
+    -Naive Bayes 
+    -Random Forest
+    -Logistic Regression
+    
 # Supported languages (nltk stopwords)
 List of supported languages of the nltk.corpus stopwords class.
 ```
