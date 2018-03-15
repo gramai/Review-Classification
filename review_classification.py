@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #Cleaning the reviews
-def clean_reviews(no_reviews,language,words_to_be_excluded,words_to_be_included,dataset):
+def clean_reviews(no_reviews,language, words_to_be_excluded, words_to_be_included, dataset):
     import re
     import nltk
     nltk.download('stopwords') #Must only be downloaded once 
@@ -24,7 +24,7 @@ def clean_reviews(no_reviews,language,words_to_be_excluded,words_to_be_included,
     from nltk.stem.porter import PorterStemmer
      
     corpus =[] #Will contain the clean reviews"
-    for i in range (0,no_reviews):
+    for i in range (0, no_reviews):
         review = re.sub('[^a-zA-Z]',' ', dataset['Review'][i]) #Removes all other characters besides the letters and puts the review in a string
         review = review.lower() #Transforms all UPPER-CASE characters to lower-case
         review = review.split() #Separates all the words from the review string and puts them in a list
@@ -35,7 +35,7 @@ def clean_reviews(no_reviews,language,words_to_be_excluded,words_to_be_included,
     return corpus
 
 #Creating the bag of words model
-def bag_of_words(dataset, corpus,maximum_features):
+def bag_of_words(dataset, corpus, maximum_features):
     from sklearn.feature_extraction.text import CountVectorizer
     cv = CountVectorizer(max_features = maximum_features) #Object for creating the sparse matrix 
     X = cv.fit_transform(corpus).toarray() #Sparse matrix 
@@ -55,7 +55,7 @@ def score_acc(cm):
     return accuracy,score
 
 #Applying the Naive Bayes classification algorithm
-def naive_bayes(X_train,y_train,X_test,y_test):
+def naive_bayes(X_train, y_train, X_test, y_test):
     from sklearn.naive_bayes import GaussianNB
     classifier = GaussianNB()
     classifier.fit(X_train, y_train)
@@ -67,12 +67,12 @@ def naive_bayes(X_train,y_train,X_test,y_test):
     from sklearn.metrics import confusion_matrix
     cm = confusion_matrix(y_test, y_pred) #Contains results of predictions
     accuracy,score=score_acc(cm)
-    print("Accuracy of the Naive Bayes algorithm is ",  accuracy, " and score ",score)
-    return accuracy,score    
+    print("Accuracy of the Naive Bayes algorithm is ",  accuracy, " and score ", score)
+    return accuracy, score    
 
 
 #Applying the Random Forest classification algorithm
-def random_forest(number_of_trees, X_train,y_train,X_test,y_test):
+def random_forest(number_of_trees, X_train, y_train, X_test, y_test):
     from sklearn.ensemble import RandomForestClassifier
     classifier = RandomForestClassifier(n_estimators = number_of_trees, criterion = 'entropy')
     classifier.fit(X_train, y_train)
@@ -84,11 +84,11 @@ def random_forest(number_of_trees, X_train,y_train,X_test,y_test):
     from sklearn.metrics import confusion_matrix
     cm = confusion_matrix(y_test, y_pred)
     accuracy,score=score_acc(cm)
-    print("Accuracy of the Random Forest algorithm for ", number_of_trees, " is ",  accuracy, " and score ",score)
-    return accuracy,score
+    print("Accuracy of the Random Forest algorithm for ", number_of_trees, " is ",  accuracy, " and score ", score)
+    return accuracy, score
       
 #Applying the Logistic Regression classification algorithm
-def logistic_regression(X_train,y_train,X_test,y_test):
+def logistic_regression(X_train, y_train, X_test, y_test):
     from sklearn.linear_model import LogisticRegression
     classifier = LogisticRegression(random_state = 0)
     classifier.fit(X_train, y_train)
@@ -100,8 +100,8 @@ def logistic_regression(X_train,y_train,X_test,y_test):
     from sklearn.metrics import confusion_matrix
     cm = confusion_matrix(y_test, y_pred)
     accuracy,score=score_acc(cm)
-    print("Accuracy of the Logistic Regression algorithm is ",  accuracy, " and score ",score)
-    return accuracy,score
+    print("Accuracy of the Logistic Regression algorithm is ",  accuracy, " and score ", score)
+    return accuracy, score
 
 
     
