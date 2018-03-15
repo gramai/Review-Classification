@@ -1,5 +1,5 @@
 # Review-Classification
-Review Classification using NPL (Natural Language Processing)
+Review Classification using NPL (Natural Language Processing) "Bag of Words" algorithm.
 
 # Requirements
 Python >= 3.0
